@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Standing for Synchro Duet, by country</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h1>Standing list</h1>
+    <h2>Synchro Duet</h2>
+    <h3>Swimmers by Country</h3>
+		
+    <div th:each="country: ${standings.keySet()}">
+      <h4 th:text="${country}"></h4>
+      <ul>
+          <li th:each="swimmer: ${standings.get(country)}">
+            <span th:text="${swimmer.name}"></span>
+          </li>
+      </ul>
+    </div>
+</body>
+</html>

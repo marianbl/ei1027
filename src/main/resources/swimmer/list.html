@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Manage swimmers</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" type="text/css" href="/css/swimming.css"
+                                    th:href="@{/css/swimming.css}">
+
+</head>
+<body>
+   <h1>List of swimmers</h1>
+   <div th:if="${#lists.isEmpty(swimmers)}">
+         There are not swimmers in the data base 
+    </div>
+   
+    <table th:unless="${#lists.isEmpty(swimmers)}" class="table table-striped">
+
+    <thead>
+       <tr>
+         <th>FedId</th>
+         <th>Name</th>
+         <th>Country</th>
+         <th>Age</th>
+         <th>Sex</th>
+       </tr>
+    </thead>
+    <tbody>
+     <tr th:each="swimmer: ${#lists.sort(swimmers, somecomparator)}"> 
+      <td th:text="${swimmer.fedId}"></td> 
+        <td th:text="${swimmer.name}" 
+      th:class="${#strings.equals(swimmer.sex, 'Female')} ? 
+                font-weight-bold : font-italic"></td>
+      <td th:text="${swimmer.country}"></td>
+      <td th:text="${swimmer.age}"></td>
+      <td th:text="${swimmer.sex}"></td>
+      <td><a th:href="@{/swimmer/update/{name}(name=${swimmer.name})}">Update</a>
+      </td>
+      <td><a th:href="@{/swimmer/delete/{name}(name=${swimmer.name})}">Delete</a>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <a href="add.html">Add swimmer</a> 
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Create new swimmer</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" type="text/css" href="/css/swimming.css"
+                                    th:href="@{/css/swimming.css}">
+
+</head>
+<body>
+    <h2>New swimmer</h2>
+    <form action="#" th:action="@{/swimmer/add}"
+                     th:object="${swimmer}" method="post">
+      <table>
+        <tr>
+ <td><label>Name</label></td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"/></td> 
+       </tr>
+       <tr>
+            <td><label>Fed. Id</label></td>
+            <td><input type="text" th:field="*{fedId}" /></td>
+        </tr>
+        <tr>
+            <td><label>Country</label></td>
+            <td><input type="text" th:field="*{country}" /></td>
+        </tr>
+        <tr>
+            <td><label>Age</label></td>
+            <td><input type="text" th:field="*{age}" 
+           th:errorclass="needcorrection"/></td>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></td>
+        </tr>
+        <tr>
+            <td><label>Sex</label></td>
+            <td><select class="form_control" type="text" th:field="*{sex}" >
+				<option value="---">---</option>
+				<option value="Female">Female</option>
+				<option value="Male">Male</option>
+    			</select>
+			</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Add swimmer" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
+
+        

@@ -1,0 +1,30 @@
+/* Style applied to the body of the page */
+body {
+   font-family: Helvetica, Arial, sans-serif; 
+   background-color: white;
+}
+
+/* Headline Level 1 */
+h1 {
+   font-size: x-large; 
+   color: orange;
+}
+
+/* Headline Level 2 */
+h2 {
+   font-size: large; 
+   color: blue;
+}
+
+/* Class CSS error */
+.error {
+     color: red;
+     font-size:80%
+     
+/* Class CSS for incorrect properties */
+.needcorrection {
+     color: red;
+     background-color:yellow;
+}
+     
+}
